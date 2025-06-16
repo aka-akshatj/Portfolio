@@ -10,17 +10,18 @@ const About = () => {
         "Experienced in building end-to-end web applications using modern technologies",
     },
     {
-      icon: <FaUsers className="text-blue-400" />,
-      title: "Leadership",
-      description:
-        "Executive Head at E-Cell, fostering innovation within the student community",
-    },
-    {
       icon: <FaLightbulb className="text-blue-400" />,
       title: "Problem Solving",
       description:
         "Strong foundation in Data Structures, Algorithms, and Object-Oriented Programming",
     },
+    {
+      icon: <FaUsers className="text-blue-400" />,
+      title: "Leadership",
+      description:
+        "Executive Head at E-Cell, fostering innovation within the student community",
+    },
+
     {
       icon: <FaGraduationCap className="text-blue-400" />,
       title: "Continuous Learning",

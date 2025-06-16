@@ -1,19 +1,27 @@
-import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa';
-import { personalInfo } from '../data/data';
+import { useState } from "react";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaPaperPlane,
+} from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import { personalInfo } from "../data/data";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -21,7 +29,9 @@ const Contact = () => {
     e.preventDefault();
     // Here you would typically handle form submission
     // For now, we'll create a mailto link
-    const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:${
+      personalInfo.email
+    }?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
     window.location.href = mailtoLink;
@@ -29,36 +39,37 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <FaEnvelope className="text-primary-400" />,
+      icon: <FaEnvelope className="text-blue-400" />,
       title: "Email",
       value: personalInfo.email,
-      link: `mailto:${personalInfo.email}`
+      link: `mailto:${personalInfo.email}`,
     },
     {
       icon: <FaPhone className="text-green-400" />,
       title: "Phone",
       value: personalInfo.phone,
-      link: `tel:${personalInfo.phone}`
+      link: `tel:${personalInfo.phone}`,
     },
     {
       icon: <FaMapMarkerAlt className="text-red-400" />,
       title: "Location",
       value: personalInfo.location,
-      link: null
-    }
+      link: null,
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-dark-800">
+    <section id="contact" className="py-20 bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-purple-600 mx-auto mb-4"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4"></div>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities and collaborating on exciting projects. 
-            Feel free to reach out if you'd like to work together!
+            I'm always open to discussing new opportunities and collaborating on
+            exciting projects. Feel free to reach out if you'd like to work
+            together!
           </p>
         </div>
 
@@ -70,8 +81,9 @@ const Contact = () => {
                 Let's Connect
               </h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                Whether you have a project in mind, want to discuss opportunities, or just want to say hello, 
-                I'd love to hear from you. I typically respond within 24 hours.
+                Whether you have a project in mind, want to discuss
+                opportunities, or just want to say hello, I'd love to hear from
+                you. I typically respond within 24 hours.
               </p>
             </div>
 
@@ -79,7 +91,7 @@ const Contact = () => {
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-dark-700 rounded-lg flex items-center justify-center border border-dark-600">
+                  <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center border border-slate-600">
                     {info.icon}
                   </div>
                   <div>
@@ -87,7 +99,7 @@ const Contact = () => {
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
+                        className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
                       >
                         {info.value}
                       </a>
@@ -107,31 +119,40 @@ const Contact = () => {
                   href={personalInfo.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-dark-700 rounded-lg flex items-center justify-center border border-dark-600 hover:border-primary-500 hover:bg-primary-500/10 transition-all duration-300"
+                  className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center border border-slate-600 hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
                 >
-                  <FaGithub className="text-gray-300 hover:text-primary-400" />
+                  <FaGithub className="text-gray-300 hover:text-blue-400" />
                 </a>
                 <a
                   href={personalInfo.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-dark-700 rounded-lg flex items-center justify-center border border-dark-600 hover:border-primary-500 hover:bg-primary-500/10 transition-all duration-300"
+                  className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center border border-slate-600 hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300"
                 >
-                  <FaLinkedin className="text-gray-300 hover:text-primary-400" />
+                  <FaLinkedin className="text-gray-300 hover:text-blue-400" />
+                </a>
+                <a
+                  href={personalInfo.socialLinks.leetcode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center border border-slate-600 hover:border-orange-500 hover:bg-orange-500/10 transition-all duration-300"
+                >
+                  <SiLeetcode className="text-gray-300 hover:text-orange-400" />
                 </a>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-dark-900 rounded-lg p-8 border border-dark-700">
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Send Message
-            </h3>
+          <div className="bg-slate-900 rounded-lg p-8 border border-slate-700">
+            <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -141,12 +162,15 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-800 border border-dark-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
                     placeholder="Your Name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -156,14 +180,17 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark-800 border border-dark-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Subject
                 </label>
                 <input
@@ -173,13 +200,16 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-dark-800 border border-dark-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
                   placeholder="What's this about?"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -189,11 +219,11 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-dark-800 border border-dark-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 transition-colors duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none"
                   placeholder="Tell me about your project or just say hello!"
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 className="w-full btn-primary flex items-center justify-center gap-2"

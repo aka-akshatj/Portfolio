@@ -66,11 +66,12 @@ const Hero = () => {
           <div className="flex flex-col items-center space-y-8">
             {/* Profile Image */}
             <div className="animate-fade-in">
-              <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-6xl md:text-7xl font-bold text-white shadow-2xl ">
-                {personalInfo.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")}
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl float-animation border-4 border-blue-500">
+                <img
+                  src="/src/assets/Akshat.jpg"
+                  alt={personalInfo.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
